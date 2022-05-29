@@ -19,7 +19,7 @@
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="texto alternativo" width="72" height="57">
+                <img class="d-block mx-auto mb-4" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="" width="72" height="57">
                 <h1>Checkout form</h1>
                 <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
             </div>
@@ -36,7 +36,7 @@
                                 <h6 class="my-0">Product name</h6>
                                 <small class="text-muted">Brief description</small>
                             </div>
-                            <p class="text-muted">$12</p>
+                            <span class="text-muted">$12</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
@@ -66,10 +66,10 @@
                     </ul>
 
                     <form class="card p-2">
-                        <label for="promo">Promo</label>
+                        <label for="promoCode">Introduzca codigo de promocion</label>
                         <div class="input-group">
 
-                            <input type="text" id="promoCode" class="form-control">
+                            <input type="text" class="form-control" id="promoCode" name="promocode">
                             <button type="submit" class="btn btn-secondary">Redeem</button>
                         </div>
                     </form>
@@ -112,20 +112,21 @@
                                     Please enter a valid email address for shipping updates.
                                 </div>
                             </div>
-
-                            <div class="col-12">
-                                <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                                <div class="invalid-feedback">
-                                    Please enter your shipping address.
+                            <fieldset>
+                                <legend></legend>
+                                <div class="col-12">
+                                    <label for="address" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                                    <div class="invalid-feedback">
+                                        Please enter your shipping address.
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-12">
-                                <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                            </div>
-
+                                <div class="col-12">
+                                    <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+                                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                                </div>
+                            </fieldset>
                             <div class="col-md-5">
                                 <label for="country" class="form-label">Country</label>
                                 <select class="form-select" id="country" required>
@@ -158,61 +159,77 @@
                         </div>
 
                         <hr class="my-4">
-
-                        <div class="form-check">
-                            <fieldset>
-                                <legend>More info</legend>
-                                <label class="form-check-label" for="same-address">Shipping address is the same as my billing
-                  address</label>
+                        <fieldset>
+                            <legend></legend>
+                            <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="same-address">
-                                <label class="form-check-label" for="save-info">Save this information for next time</label>
+                                <label class="form-check-label" for="same-address">Shipping address is the same as my billing
+                address</label>
+                            </div>
+
+                            <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="save-info">
-                            </fieldset>
-                        </div>
+                                <label class="form-check-label" for="save-info">Save this information for next time</label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend></legend>
+                            <hr class="my-4">
 
-                        <hr class="my-4">
 
-                        <div class="form-check">
-                            <fieldset>
-                                <legend>Payment</legend>
-                                <input type="radio" id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                                <label class="form-check-label" for="credit">Credit card</label><br />
-                                <input type="radio" id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                                <label class="form-check-label" for="debit">Debit card</label><br />
-                                <input type="radio" id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                                <label class="form-check-label" for="paypal">PayPal</label><br />
-                            </fieldset>
-                        </div>
+                            <h4 class="mb-3">Payment</h4>
 
-                        <div class="row gy-3">
-                            <div class="col-md-6">
-                                <label for="cc-name" class="form-label">Name on card</label>
-                                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                                <small class="text-muted">Full name as displayed on card</small>
-                                <div class="invalid-feedback">
-                                    Name on card is required
+
+                            <div class="my-3">
+                                <div class="form-check">
+                                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                                    <label class="form-check-label" for="credit">Credit card</label>
                                 </div>
-                                <label for="cc-number" class="form-label">Credit card number</label>
-                                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                                <div class="invalid-feedback">
-                                    Credit card number is required
+                                <div class="form-check">
+                                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                                    <label class="form-check-label" for="debit">Debit card</label>
+                                </div>
+                                <div class="form-check">
+                                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                                    <label class="form-check-label" for="paypal">PayPal</label>
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
-                                <label for="cc-expiration" class="form-label">Expiration</label>
-                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                                <div class="invalid-feedback">
-                                    Expiration date required
+                            <div class="row gy-3">
+                                <div class="col-md-6">
+                                    <label for="cc-name" class="form-label">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback">
+                                        Name on card is required
+                                    </div>
                                 </div>
-                                <label for="cc-cvv" class="form-label">CVV</label>
-                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                <div class="invalid-feedback">
-                                    Security code required
+
+                                <div class="col-md-6">
+                                    <label for="cc-number" class="form-label">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Credit card number is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="cc-expiration" class="form-label">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Expiration date required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="cc-cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Security code required
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        </fieldset>
                         <hr class="my-4">
 
                         <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
